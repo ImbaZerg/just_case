@@ -29,9 +29,7 @@ enum Status {
   humidityEvent,
 }
 
-// пишем енум по нормальному
 extension Statusextension on Status {
-  // поле нейм превратилось в тайтл
   String get title {
     switch (this) {
       case Status.unknown:
@@ -61,21 +59,21 @@ extension Statusextension on Status {
     switch (this) {
       case Status.ready:
       case Status.caseClosed:
-        return Colors.green;
+        return const Color(0xFF6fb48c);
 
       case Status.caseOpen:
       case Status.lowBattery:
       case Status.temperatureEvent:
       case Status.humidityEvent:
-        return Colors.yellow;
+        return const Color(0xFFcea158);
 
       case Status.anxiety:
       case Status.fire:
-        return Colors.red;
+        return const Color(0xFFe15d5b);
 
       case Status.unknown:
       case Status.lost:
-        return Colors.grey;
+        return const Color(0xFFa9a196);
     }
   }
 }
@@ -96,7 +94,7 @@ class Sensor {
     required this.humidity,
   });
 
-  // конструктор парсит из апишки
+  // конструктор из файла
   factory Sensor.fromApi(Map<String, dynamic> json) {
     return Sensor(
         id: json['sensor_id'],
@@ -106,6 +104,14 @@ class Sensor {
         humidity: json['humidity']);
   }
 
-  @override
-  String toString() => 'Sensor(id: $id, status: $status)';
+// чтобы не изменять инстанс сенсора, мы возвращаем новый с изменённым именем
+  Sensor copyWithName(String newName) {
+    return Sensor(
+      id: id,
+      name: newName,
+      status: status,
+      temperature: temperature,
+      humidity: humidity,
+    );
+  }
 }
