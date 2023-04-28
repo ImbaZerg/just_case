@@ -6,13 +6,24 @@
 Приложение спользует Flatter 3.7.12, актуальная версия доступна по ссылке
 https://docs.flutter.dev/get-started/install
 
-После скачивания проекта с гитхаба в папке just_case выполните команду 
-$ flutter pub get
+Скачать проект с репазитория 
+
+```git clone https://github.com/ImbaZerg/just_case.git```
+
+Перейти в папку с проектом 
+
+```cd .\just_case\```
+
+В папке just_case выполните команду 
+
+```flutter pub get```
 
 Запустить предпочитаемым способом.
 
 Команда для запуска из терминала
-$ flutter run -d chrome
+
+```flutter run -d chrome```
 
 Если у вас не включена поддержка web
-$ flutter config --enable-web
+
+```flutter config --enable-web```
