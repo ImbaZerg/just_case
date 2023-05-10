@@ -9,33 +9,30 @@ class SensorItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // обрабатываем тап, показываем рипл
-    return Builder(builder: (context) {
-      return InkWell(
-        child: Padding(
-          padding: const EdgeInsets.all(10),
-          child: Row(
-            children: [
-              Expanded(child: Text(sensor.name)),
-             // const Spacer(),
-              Chip(
-                backgroundColor: sensor.status.color,
-                label: Text(
-                  sensor.status.title,
-                  style: const TextStyle(color: Colors.white),
-                ),
+    return InkWell(
+      child: Padding(
+        padding: const EdgeInsets.all(10),
+        child: Row(
+          children: [
+            Expanded(child: Text(sensor.name)),
+            // const Spacer(),
+            Chip(
+              backgroundColor: sensor.status.color,
+              label: Text(
+                sensor.status.title,
+                style: const TextStyle(color: Colors.white),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
-        onTap: () {
-          Navigator.push(
-            context,
-            // переход к страничке сенсора
-            MaterialPageRoute(
-                builder: (context) => SensorScreen(sensor: sensor)),
-          );
-        },
-      );
-    });
+      ),
+      onTap: () {
+        Navigator.push(
+          context,
+          // переход к страничке сенсора
+          MaterialPageRoute(builder: (context) => SensorScreen(sensor: sensor)),
+        );
+      },
+    );
   }
 }

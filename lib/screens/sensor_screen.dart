@@ -77,7 +77,7 @@ class _SensorScreenState extends State<SensorScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('status: ${widget.sensor.status.name} '),
+                const Text('status: '),
                 Chip(
                   backgroundColor: widget.sensor.status.color,
                   avatar: CircleAvatar(
@@ -86,8 +86,9 @@ class _SensorScreenState extends State<SensorScreen> {
                         style: const TextStyle(color: Colors.black),
                         widget.sensor.status.index.toString()),
                   ),
-                  label: Text(widget.sensor.status.title,
-                   style: const TextStyle(color: Colors.white),
+                  label: Text(
+                    widget.sensor.status.title,
+                    style: const TextStyle(color: Colors.white),
                   ),
                 ),
               ],
@@ -106,7 +107,7 @@ class _SensorScreenState extends State<SensorScreen> {
   @override
   // убираем во избежании утечки памяти
   void dispose() {
-    _focusNode.removeListener(focusListener); 
+    _focusNode.removeListener(focusListener);
     _focusNode.dispose();
     _controller.dispose();
     super.dispose();

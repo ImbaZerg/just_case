@@ -8,7 +8,7 @@ class SensorRepository {
     // получаем данные из хранилища
     final prefs = await SharedPreferences.getInstance();
     // получаем данные из файла rootBundle позволяет не прокидывать контекст 
-    final data = await rootBundle.loadString("events.json");
+    final data = await rootBundle.loadString("assets/events.json");
     // приводим работу декода к листу
     final result = (json.decode(data) as List).map((e) {
       final sensor = Sensor.fromApi(e);
